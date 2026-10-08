@@ -1,0 +1,6 @@
+# Documentation build dependencies (used by the GitHub Actions docs workflow).
+# Kept in sync with the `docs` extra in pyproject.toml.
+mkdocs-material>=9.5
+mkdocstrings[python]>=0.25
+mkdocs-jupyter>=0.24
+mkdocs-gen-files>=0.5

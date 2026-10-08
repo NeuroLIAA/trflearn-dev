@@ -1,0 +1,191 @@
+/* ============================================================================
+   TRFlearn — brand theme for Material for MkDocs.
+   Palette taken from the NeuroLIAA head/EEG-graph logo:
+     steel blue  #2E6F8E   (primary)
+     crimson     #9E2B33   (accent)
+     cream       #FAF7F1   (light page background)
+   ========================================================================== */
+
+/* ---- Custom primary (steel blue) ---------------------------------------- */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color:        #2E6F8E;
+  --md-primary-fg-color--light: #4C8AA8;
+  --md-primary-fg-color--dark:  #235A75;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffffcc;
+}
+
+/* ---- Custom accent (crimson) -------------------------------------------- */
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color:         #9E2B33;
+  --md-accent-fg-color--transparent: #9e2b331a;
+  --md-accent-bg-color:         #ffffff;
+  --md-accent-bg-color--light:  #ffffffcc;
+}
+
+/* ---- Light scheme: warm cream surfaces ---------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:      #FAF7F1;
+  --md-code-bg-color:         #f3efe6;
+  --md-typeset-a-color:       #235A75;
+  --md-footer-bg-color:       #235A75;
+  --md-footer-bg-color--dark: #1c4a61;
+}
+
+/* Slightly warmer header on the light scheme. */
+[data-md-color-scheme="default"] .md-header {
+  background: linear-gradient(90deg, #2E6F8E 0%, #235A75 100%);
+}
+
+/* Header logo: Material's default 1.2rem is too small for the wave mark. */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
+  border-radius: 50%;
+  background: var(--tx-logo-disc);
+}
+[data-md-color-scheme="default"] { --tx-logo-disc: #ffffffcc; }
+[data-md-color-scheme="slate"]   { --tx-logo-disc: #000000cc; }
+
+/* ---- Typography tuning --------------------------------------------------- */
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.md-typeset h2 {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.2em;
+}
+
+/* ============================================================================
+   Hero (home page)
+   ========================================================================== */
+.tx-hero {
+  margin: 0 -0.8rem 2.2rem;
+  padding: 2rem 1.6rem 2.6rem;
+  border-radius: 1.2rem;
+  background: var(--tx-hero-bg);
+  color: var(--tx-hero-fg);
+  text-align: center;
+}
+[data-md-color-scheme="default"] {
+  --tx-hero-bg:      #ffffff;
+  --tx-hero-fg:      #1d2a33;
+  --tx-hero-muted:   #1d2a3380;
+  --tx-hero-outline: #2E6F8E;
+}
+[data-md-color-scheme="slate"] {
+  --tx-hero-bg:      #000000;
+  --tx-hero-fg:      #f2f2f2;
+  --tx-hero-muted:   #f2f2f280;
+  --tx-hero-outline: #7fb0c8;
+}
+.tx-hero-logo img {
+  display: block;
+  width: min(100%, 46rem);
+  margin: 0 auto 1.2rem;
+}
+.tx-hero h1 {
+  color: var(--tx-hero-fg) !important;
+  font-size: 2.6rem;
+  margin: 0 0 0.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.tx-hero p.tagline {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  max-width: 46rem;
+  margin: 0 auto 1.4rem;
+}
+.tx-hero .md-button {
+  margin: 0.3rem 0.35rem 0;
+  border-radius: 2rem;
+}
+.tx-hero .md-button--primary {
+  background: #9E2B33;
+  border-color: #9E2B33;
+  color: #fff;
+}
+.tx-hero .md-button--primary:hover {
+  background: #7f222a;
+  border-color: #7f222a;
+  color: #fff;
+}
+.tx-hero .md-button:not(.md-button--primary) {
+  color: var(--tx-hero-outline);
+  border-color: var(--tx-hero-outline);
+}
+.tx-hero .md-button:not(.md-button--primary):hover {
+  background: var(--tx-hero-outline);
+  color: var(--tx-hero-bg);
+}
+.tx-pills {
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+.tx-pills code {
+  background: none;
+  color: var(--tx-hero-fg);
+  border: 1px solid var(--tx-hero-muted);
+  padding: 0.15em 0.5em;
+  border-radius: 1rem;
+}
+
+/* ============================================================================
+   Feature cards
+   ========================================================================== */
+.md-typeset .grid.cards > ul > li {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.7rem;
+  padding: 1rem 1.1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-primary-fg-color--light);
+  box-shadow: 0 6px 22px -12px #235a7566;
+  transform: translateY(-2px);
+}
+.md-typeset .grid.cards > ul > li > hr {
+  margin: 0.6rem 0;
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+/* ============================================================================
+   API reference (mkdocstrings) polish
+   ========================================================================== */
+.md-typeset .doc-heading code {
+  background: transparent;
+  padding: 0;
+}
+.doc-symbol-heading {
+  scroll-margin-top: 4rem;
+}
+/* accent the symbol-type chips */
+.doc-symbol-class { color: var(--md-primary-fg-color); }
+.doc-symbol-method,
+.doc-symbol-function { color: var(--md-accent-fg-color); }
+
+/* Left-border accent on docstring parameter tables. */
+.md-typeset .doc-contents {
+  border-left: 2px solid var(--md-default-fg-color--lightest);
+  padding-left: 1rem;
+  margin-left: 0.15rem;
+}
+
+/* Rounded, subtle code blocks. */
+.md-typeset pre > code {
+  border-radius: 0.5rem;
+}
+
+/* Notebook (mkdocs-jupyter) output images stay contained. */
+.jp-RenderedImage img,
+.jupyter-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
